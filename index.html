@@ -1,0 +1,186 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>✨ Mayra Terrazas’ Tattoo Portfolio ✨</title>
+  <meta name="description" content="Tattoo gallery for artist Mayra Terrazas — auto-loading gallery with click-to-view lightbox." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink-100:#fce7f3;
+      --pink-400:#f472b6;
+      --pink-600:#db2777;
+      --periwinkle:#8F99FB;
+      --ink:#1f2937;
+    }
+
+    * { box-sizing:border-box }
+    html,body { height:100% }
+    body {
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      color:var(--ink);
+      background: linear-gradient(180deg, var(--pink-100) 0%, var(--periwinkle) 100%);
+      min-height:100%;
+    }
+
+    header {
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:var(--pink-400);
+      border-bottom:1px solid var(--pink-600);
+      text-align:center;
+      color:var(--periwinkle);
+      padding:24px 20px;
+      min-height:80px;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    h1 { margin:0; letter-spacing:.2px; font-size:clamp(1.25rem,2.6vw,2rem) }
+    h1 strong { color:var(--periwinkle) }
+
+    main {
+      max-width:1200px; margin:0 auto; padding:20px;
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px;
+    }
+    .thumb {
+      width:100%; aspect-ratio:4/5; object-fit:cover;
+      border-radius:12px; border:2px solid rgba(255,255,255,.35);
+      box-shadow:0 6px 14px rgba(0,0,0,.12);
+      cursor:pointer; background:#fff;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position:fixed; inset:0; display:none; place-items:center; z-index:100;
+      background:rgba(0,0,0,.7);
+    }
+    .lightbox.open { display:grid; }
+    .lightbox-inner {
+      position:relative; width:min(96vw,1200px); height:min(92vh,900px);
+      background:#000; border-radius:16px; overflow:hidden;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .lightbox-inner img {
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+    }
+    .lb-controls {
+      position:absolute; top:10px; right:10px; display:flex; gap:8px;
+    }
+    .iconbtn {
+      background:rgba(255,255,255,.2); color:#fff;
+      border:none; border-radius:8px; padding:8px 12px;
+      cursor:pointer; font-size:1rem;
+    }
+    .iconbtn:hover { background:rgba(255,255,255,.35); }
+    .navbtn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(255,255,255,.2); color:#fff;
+      border:none; border-radius:50%; padding:12px 16px;
+      cursor:pointer; font-size:1.5rem;
+    }
+    .navbtn:hover { background:rgba(255,255,255,.35); }
+    .prev { left:10px; }
+    .next { right:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
+  </header>
+
+  <main id="gallery"></main>
+
+  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
+  <script>
+    window.AUTO_SOURCES = [
+      {% for f in imgs %}"{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+    ];
+  </script>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="navbtn prev" id="prev" aria-label="Previous">⟨</button>
+      <img id="full" alt="Expanded tattoo image" />
+      <button class="navbtn next" id="next" aria-label="Next">⟩</button>
+      <div class="lb-controls">
+        <button class="iconbtn" id="close" aria-label="Close">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const imageFolder = 'images/';
+    const fallbackList = []; // Fill in for local testing if needed
+
+    const gallery = document.getElementById('gallery');
+    let sources = (window.AUTO_SOURCES && window.AUTO_SOURCES.length)
+      ? window.AUTO_SOURCES
+      : fallbackList.map(name => imageFolder + name);
+
+    const imageList = sources.map(p => p.split('/').pop());
+
+    // Build thumbnails
+    sources.forEach((src, idx) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = imageList[idx] || 'Tattoo image';
+      img.className = 'thumb';
+      img.addEventListener('click', () => openLightbox(idx));
+      gallery.appendChild(img);
+    });
+
+    // Lightbox logic
+    const lightbox = document.getElementById('lightbox');
+    const full = document.getElementById('full');
+    const closeBtn = document.getElementById('close');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    let currentIndex = 0;
+
+    function openLightbox(i) {
+      currentIndex = i;
+      full.src = sources[currentIndex];
+      full.alt = imageList[currentIndex] || 'Tattoo image';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % sources.length;
+      full.src = sources[currentIndex];
+    }
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + sources.length) % sources.length;
+      full.src = sources[currentIndex];
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  </script>
+</body>
+</html>
