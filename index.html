@@ -114,6 +114,24 @@
     .navbtn:hover { background:rgba(255,255,255,.35); }
     .prev { left:10px; }
     .next { right:10px; }
+  /* Location badge - bottom left corner */
+    .location-badge {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      padding: 8px 18px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 50;
+      pointer-events: none; /* Makes it so you can click *through* it if needed */
+      user-select: none; /* Prevents accidental text selection */
+    }
   </style>
 </head>
 <body>
@@ -121,10 +139,11 @@
   <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" class="header-link">
     <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
   </a>
-  <p class="social-hint">👆 Click name for social</p>
+  <p class="social-hint">👆 Click name for insta</p>
 </header>
 
   <main id="gallery"></main>
+   <div class="location-badge"> Based in Chicago</div>
 
   {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
   <script>
