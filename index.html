@@ -97,8 +97,24 @@
 </head>
 
 <body>
+
+  <!-- ============================================================== -->
+  <!--  🚀 JEKYLL LIQUID – RUNS FIRST on GitHub Pages                 -->
+  <!--  Scans your /images/ folder and injects the list into JS       -->
+  <!-- ============================================================== -->
+  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
+  <script>
+    window.AUTO_SOURCES = [
+      {% for f in imgs %}
+      "{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    ];
+  </script>
+
+  <!-- ===== SKIP LINK ===== -->
   <a class="skip-link" href="#gallery">Skip to gallery</a>
 
+  <!-- ===== HEADER ===== -->
   <header>
     <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" class="header-link" aria-label="Visit Mayra Terrazas on Instagram">
       <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
@@ -106,17 +122,13 @@
     <p class="social-hint">👆 Click name to follow on Instagram</p>
   </header>
 
+  <!-- ===== MAIN ===== -->
   <main>
     <section class="about-section" aria-labelledby="about-heading">
       <h2 id="about-heading">Chicago Tattoo Artist – Fine Line &amp; Custom Ink</h2>
       <p>
         <span class="highlight">Mayra Terrazas</span> is a tattoo artist based in
-        <span class="highlight">Chicago, Illinois</span>, specializing in
-        <strong>fine-line tattoos</strong>, <strong>blackwork</strong>, and
-        <strong>custom designs</strong>. Her portfolio features original ink
-        work that blends delicate line work with bold, timeless imagery.
-        Whether you are looking for a minimalist piece or a full custom
-        sleeve, Mayra brings a meticulous, artistic touch to every tattoo.
+        <span class="highlight">Chicago, Illinois</span>
       </p>
       <p style="margin-top:12px;">
         Browse the gallery below to see recent work, then reach out via
@@ -131,16 +143,18 @@
     </section>
   </main>
 
-  <div class="location-badge" aria-hidden="true">📍 Based in Chicago</div>
+  <!-- ===== LOCATION BADGE ===== -->
+  <div class="location-badge" aria-hidden="true">Based in Chicago</div>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>
       &copy; 2026 <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer">Mayra Terrazas</a>
       &nbsp;·&nbsp; Chicago, IL
-      &nbsp;·&nbsp; <a href="mailto:mayra@example.com">Contact</a>
     </p>
   </footer>
 
+  <!-- ===== LIGHTBOX ===== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tattoo image lightbox">
     <div class="lightbox-inner">
       <button class="navbtn prev" id="prev" aria-label="Previous image">⟨</button>
@@ -153,34 +167,34 @@
   </div>
 
   <!-- ============================================================== -->
-  <!--  SCRIPT – strictly relies on Jekyll-injected AUTO_SOURCES      -->
+  <!--  MAIN SCRIPT – runs AFTER window.AUTO_SOURCES is set           -->
   <!-- ============================================================== -->
   <script>
     (function() {
       'use strict';
 
-      // Get the list injected by Jekyll (Liquid block at the bottom)
+      // This is now guaranteed to be populated by the Liquid block above
       var sources = (window.AUTO_SOURCES && window.AUTO_SOURCES.length) ?
         window.AUTO_SOURCES :
-        []; // Intentionally empty fallback – we want Jekyll to do the work.
+        []; // If empty, show a friendly message
 
-      // If no images were injected, show a helpful message in the gallery.
+      var gallery = document.getElementById('gallery');
+
+      // If no images were injected, show a helpful message.
       if (!sources.length) {
-        var gallery = document.getElementById('gallery');
         var msg = document.createElement('div');
         msg.style.cssText = 'grid-column:1/-1; text-align:center; padding:60px 20px; background:rgba(255,255,255,0.3); border-radius:16px; color:#1f2937;';
         msg.innerHTML = `
           <p style="font-size:1.2rem; font-weight:600; margin-bottom:8px;">📁 No images found</p>
-          <p style="font-size:0.95rem;">Please run <strong>jekyll serve</strong> or <strong>jekyll build</strong> to scan your <code>/images/</code> folder.<br>
-          (The page must be processed by Jekyll to auto‑load the gallery.)</p>
+          <p style="font-size:0.95rem;">Make sure you have a <code>/images/</code> folder in your repo with your tattoo photos.<br>
+          GitHub Pages will automatically scan it when you push.</p>
         `;
         gallery.appendChild(msg);
-        console.warn('Jekyll AUTO_SOURCES is empty. Make sure you run Jekyll and have images in the /images/ folder.');
-        return; // Stop here – no images to process.
+        console.warn('No images found. Add a /images/ folder to your repository.');
+        return;
       }
 
       var imageList = sources.map(function(p) { return p.split('/').pop() || 'Tattoo image'; });
-      var gallery = document.getElementById('gallery');
 
       // Build thumbnails
       sources.forEach(function(src, idx) {
@@ -258,19 +272,6 @@
         }
       });
     })();
-  </script>
-
-  <!-- ============================================================== -->
-  <!--  JEKYLL LIQUID – injects image paths from /images/ folder      -->
-  <!--  This ONLY runs when Jekyll builds the site.                  -->
-  <!-- ============================================================== -->
-  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
-  <script>
-    window.AUTO_SOURCES = [
-      {% for f in imgs %}
-      "{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    ];
   </script>
 </body>
 </html>
