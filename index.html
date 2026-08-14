@@ -3,596 +3,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== PRIMARY SEO ===== -->
-    <title>Mayra Terrazas | Tattoo Artist Portfolio &amp; Gallery – Chicago</title>
-    <meta name="description" content="Explore the tattoo portfolio of Mayra Terrazas, a Chicago-based tattoo artist. View original ink designs, fine-line work, and custom tattoos." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://mayraterrazas.com/" />
+  <!-- PRIMARY SEO -->
+  <title>Mayra Terrazas | Tattoo Artist Portfolio &amp; Gallery – Chicago</title>
+  <meta name="description" content="Explore the tattoo portfolio of Mayra Terrazas, a Chicago-based tattoo artist. View original ink designs, fine-line work, and custom tattoos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mayraterrazas.com/" />
 
-    <!-- ===== OPEN GRAPH / SOCIAL ===== -->
-    <meta property="og:title" content="Mayra Terrazas | Tattoo Artist Portfolio" />
-    <meta property="og:description" content="Chicago tattoo artist showcasing original ink, fine-line designs, and custom tattoo work." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mayraterrazas.com/" />
-    <meta property="og:image" content="https://mayraterrazas.com/images/og-preview.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Mayra Terrazas | Tattoo Artist Portfolio" />
+  <meta property="og:description" content="Chicago tattoo artist showcasing original ink, fine-line designs, and custom tattoo work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mayraterrazas.com/" />
+  <meta property="og:image" content="https://mayraterrazas.com/images/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-    <!-- ===== TWITTER CARD ===== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mayra Terrazas | Tattoo Artist Portfolio" />
-    <meta name="twitter:description" content="Chicago tattoo artist – browse original ink, fine-line tattoos, and custom designs." />
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mayra Terrazas | Tattoo Artist Portfolio" />
+  <meta name="twitter:description" content="Chicago tattoo artist – browse original ink, fine-line tattoos, and custom designs." />
 
-    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Mayra Terrazas",
-            "jobTitle": "Tattoo Artist",
-            "description": "Chicago-based tattoo artist specializing in fine-line, blackwork, and custom tattoo designs.",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Chicago",
-                "addressRegion": "IL",
-                "addressCountry": "US"
-            },
-            "url": "https://mayraterrazas.com/",
-            "sameAs": [
-                "https://www.instagram.com/maii.0h.maii/"
-            ],
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Mayra Terrazas Tattoo"
-            }
-        }
-    </script>
+  <!-- STRUCTURED DATA (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mayra Terrazas",
+      "jobTitle": "Tattoo Artist",
+      "description": "Chicago-based tattoo artist specializing in fine-line, blackwork, and custom tattoo designs.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "addressCountry": "US"
+      },
+      "url": "https://mayraterrazas.com/",
+      "sameAs": ["https://www.instagram.com/maii.0h.maii/"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mayra Terrazas Tattoo"
+      }
+    }
+  </script>
 
-    <!-- ===== FONTS ===== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
-    <style>
-        /* ===== VARIABLES ===== */
-        :root {
-            --pink-100: #fce7f3;
-            --pink-400: #f472b6;
-            --pink-600: #db2777;
-            --periwinkle: #8F99FB;
-            --ink: #1f2937;
-            --white: #ffffff;
-            --shadow: 0 6px 14px rgba(0, 0, 0, .12);
-            --radius: 12px;
-            --transition: 0.3s ease;
-        }
-
-        /* ===== RESET ===== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: var(--ink);
-            background: linear-gradient(180deg, var(--pink-100) 0%, var(--periwinkle) 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ===== SKIP LINK (accessibility) ===== */
-        .skip-link {
-            position: absolute;
-            top: -999px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--ink);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0 0 8px 8px;
-            z-index: 999;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 40;
-            backdrop-filter: saturate(140%) blur(8px);
-            background: var(--pink-400);
-            border-bottom: 1px solid var(--pink-600);
-            text-align: center;
-            padding: 20px 20px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .header-link {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-        .header-link:hover {
-            transform: scale(1.02);
-        }
-        .header-link:hover h1 strong {
-            color: #fff;
-        }
-        h1 {
-            margin: 0;
-            font-size: clamp(1.25rem, 2.6vw, 2rem);
-            letter-spacing: 0.2px;
-        }
-        h1 strong {
-            color: var(--periwinkle);
-            transition: color 0.2s ease;
-        }
-        .social-hint {
-            margin: 4px 0 0 0;
-            font-size: 0.75rem;
-            font-weight: 300;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* ===== MAIN CONTENT ===== */
-        main {
-            flex: 1;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 24px 20px 40px;
-            width: 100%;
-        }
-
-        /* ---- About Section ---- */
-        .about-section {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(4px);
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            margin-bottom: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: var(--shadow);
-        }
-        .about-section h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--pink-600);
-            margin-bottom: 8px;
-        }
-        .about-section p {
-            font-size: 1rem;
-            line-height: 1.7;
-            font-weight: 400;
-            max-width: 720px;
-            color: var(--ink);
-        }
-        .about-section p:last-child {
-            margin-bottom: 0;
-        }
-        .about-section .highlight {
-            font-weight: 600;
-            color: var(--pink-600);
-        }
-
-        /* ---- Gallery Grid ---- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 18px;
-        }
-
-        .thumb {
-            width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            border-radius: var(--radius);
-            border: 2px solid rgba(255, 255, 255, .35);
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            background: #fff;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .thumb:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
-        }
-        .thumb:focus-visible {
-            outline: 3px solid var(--pink-600);
-            outline-offset: 2px;
-        }
-
-        /* ===== LIGHTBOX ===== */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            display: none;
-            place-items: center;
-            z-index: 100;
-            background: rgba(0, 0, 0, .75);
-            backdrop-filter: blur(4px);
-        }
-        .lightbox.open {
-            display: grid;
-        }
-        .lightbox-inner {
-            position: relative;
-            width: min(96vw, 1200px);
-            height: min(92vh, 900px);
-            background: #000;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, .45);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lightbox-inner img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-        .lb-controls {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            display: flex;
-            gap: 8px;
-        }
-        .iconbtn {
-            background: rgba(255, 255, 255, .2);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 14px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background 0.2s ease;
-        }
-        .iconbtn:hover {
-            background: rgba(255, 255, 255, .35);
-        }
-        .navbtn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, .2);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            padding: 12px 18px;
-            cursor: pointer;
-            font-size: 1.6rem;
-            transition: background 0.2s ease;
-            line-height: 1;
-        }
-        .navbtn:hover {
-            background: rgba(255, 255, 255, .35);
-        }
-        .prev {
-            left: 12px;
-        }
-        .next {
-            right: 12px;
-        }
-
-        /* ===== LOCATION BADGE ===== */
-        .location-badge {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(6px);
-            padding: 8px 20px;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            z-index: 50;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 24px 20px 80px;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            margin-top: 16px;
-            background: rgba(0, 0, 0, 0.08);
-        }
-        footer a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.2s ease;
-        }
-        footer a:hover {
-            color: var(--pink-100);
-            text-decoration: underline;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 640px) {
-            .about-section {
-                padding: 20px 16px;
-            }
-            .about-section h2 {
-                font-size: 1.25rem;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 12px;
-            }
-            .location-badge {
-                bottom: 16px;
-                left: 16px;
-                font-size: 0.7rem;
-                padding: 6px 14px;
-            }
-            .navbtn {
-                padding: 8px 12px;
-                font-size: 1.2rem;
-            }
-            .lb-controls .iconbtn {
-                padding: 6px 10px;
-                font-size: 0.9rem;
-            }
-        }
-        @media (max-width: 400px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 10px;
-            }
-            header {
-                padding: 14px 12px 12px;
-            }
-        }
-    </style>
+  <style>
+    :root { --pink-100:#fce7f3; --pink-400:#f472b6; --pink-600:#db2777; --periwinkle:#8F99FB; --ink:#1f2937; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:linear-gradient(180deg,var(--pink-100)0%,var(--periwinkle)100%); min-height:100vh; display:flex; flex-direction:column; }
+    .skip-link { position:absolute; top:-999px; left:50%; transform:translateX(-50%); background:var(--ink); color:#fff; padding:0.75rem 1.5rem; border-radius:0 0 8px 8px; z-index:999; font-weight:600; text-decoration:none; }
+    .skip-link:focus { top:0; }
+    header { position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(8px); background:var(--pink-400); border-bottom:1px solid var(--pink-600); text-align:center; padding:20px 20px 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .header-link { text-decoration:none; color:inherit; display:inline-block; transition:transform 0.2s ease; }
+    .header-link:hover { transform:scale(1.02); }
+    .header-link:hover h1 strong { color:#fff; }
+    h1 { margin:0; font-size:clamp(1.25rem,2.6vw,2rem); }
+    h1 strong { color:var(--periwinkle); transition:color 0.2s ease; }
+    .social-hint { margin:4px 0 0; font-size:0.75rem; font-weight:300; opacity:0.8; color:rgba(255,255,255,0.85); }
+    main { flex:1; max-width:1280px; margin:0 auto; padding:24px 20px 40px; width:100%; }
+    .about-section { background:rgba(255,255,255,0.55); backdrop-filter:blur(4px); border-radius:12px; padding:28px 24px; margin-bottom:32px; border:1px solid rgba(255,255,255,0.4); box-shadow:0 6px 14px rgba(0,0,0,0.12); }
+    .about-section h2 { font-size:1.5rem; font-weight:800; color:var(--pink-600); margin-bottom:8px; }
+    .about-section p { font-size:1rem; line-height:1.7; max-width:720px; }
+    .about-section .highlight { font-weight:600; color:var(--pink-600); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
+    .thumb { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:12px; border:2px solid rgba(255,255,255,0.35); box-shadow:0 6px 14px rgba(0,0,0,0.12); cursor:pointer; background:#fff; transition:transform 0.25s ease, box-shadow 0.25s ease; }
+    .thumb:hover { transform:scale(1.02); box-shadow:0 10px 24px rgba(0,0,0,0.18); }
+    .thumb:focus-visible { outline:3px solid var(--pink-600); outline-offset:2px; }
+    .lightbox { position:fixed; inset:0; display:none; place-items:center; z-index:100; background:rgba(0,0,0,0.75); backdrop-filter:blur(4px); }
+    .lightbox.open { display:grid; }
+    .lightbox-inner { position:relative; width:min(96vw,1200px); height:min(92vh,900px); background:#000; border-radius:16px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; }
+    .lightbox-inner img { max-width:100%; max-height:100%; object-fit:contain; }
+    .lb-controls { position:absolute; top:12px; right:12px; display:flex; gap:8px; }
+    .iconbtn { background:rgba(255,255,255,0.2); color:#fff; border:none; border-radius:8px; padding:8px 14px; cursor:pointer; font-size:1.1rem; transition:background 0.2s ease; }
+    .iconbtn:hover { background:rgba(255,255,255,0.35); }
+    .navbtn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.2); color:#fff; border:none; border-radius:50%; padding:12px 18px; cursor:pointer; font-size:1.6rem; transition:background 0.2s ease; line-height:1; }
+    .navbtn:hover { background:rgba(255,255,255,0.35); }
+    .prev { left:12px; }
+    .next { right:12px; }
+    .location-badge { position:fixed; bottom:24px; left:24px; font-size:0.85rem; font-weight:300; color:rgba(255,255,255,0.9); background:rgba(0,0,0,0.35); backdrop-filter:blur(6px); padding:8px 20px; border-radius:30px; border:1px solid rgba(255,255,255,0.15); z-index:50; pointer-events:none; user-select:none; }
+    footer { text-align:center; padding:24px 20px 80px; font-size:0.85rem; font-weight:300; color:rgba(255,255,255,0.7); border-top:1px solid rgba(255,255,255,0.15); margin-top:16px; background:rgba(0,0,0,0.08); }
+    footer a { color:#fff; text-decoration:none; font-weight:400; transition:color 0.2s ease; }
+    footer a:hover { color:var(--pink-100); text-decoration:underline; }
+    @media (max-width:640px) { .about-section { padding:20px 16px; } .about-section h2 { font-size:1.25rem; } .gallery-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; } .location-badge { bottom:16px; left:16px; font-size:0.7rem; padding:6px 14px; } .navbtn { padding:8px 12px; font-size:1.2rem; } .lb-controls .iconbtn { padding:6px 10px; font-size:0.9rem; } }
+    @media (max-width:400px) { .gallery-grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; } header { padding:14px 12px 12px; } }
+  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#gallery">Skip to gallery</a>
 
-    <!-- ===== SKIP LINK ===== -->
-    <a class="skip-link" href="#gallery">Skip to gallery</a>
+  <header>
+    <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" class="header-link" aria-label="Visit Mayra Terrazas on Instagram">
+      <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
+    </a>
+    <p class="social-hint">👆 Click name to follow on Instagram</p>
+  </header>
 
-    <!-- ===== HEADER ===== -->
-    <header>
-        <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" class="header-link" aria-label="Visit Mayra Terrazas on Instagram">
-            <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
-        </a>
-        <p class="social-hint">👆 Click name to follow on Instagram</p>
-    </header>
+  <main>
+    <section class="about-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">Chicago Tattoo Artist – Fine Line &amp; Custom Ink</h2>
+      <p>
+        <span class="highlight">Mayra Terrazas</span> is a tattoo artist based in
+        <span class="highlight">Chicago, Illinois</span>, specializing in
+        <strong>fine-line tattoos</strong>, <strong>blackwork</strong>, and
+        <strong>custom designs</strong>. Her portfolio features original ink
+        work that blends delicate line work with bold, timeless imagery.
+        Whether you are looking for a minimalist piece or a full custom
+        sleeve, Mayra brings a meticulous, artistic touch to every tattoo.
+      </p>
+      <p style="margin-top:12px;">
+        Browse the gallery below to see recent work, then reach out via
+        <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" style="color:var(--pink-600);font-weight:600;">Instagram</a>
+        to book your session.
+      </p>
+    </section>
 
-    <!-- ===== MAIN ===== -->
-    <main>
-        <!-- ABOUT / INTRO (SEO copy) -->
-        <section class="about-section" aria-labelledby="about-heading">
-            <h2 id="about-heading">Chicago Tattoo Artist – Fine Line &amp; Custom Ink</h2>
-            <p>
-                <span class="highlight">Mayra Terrazas</span> is a tattoo artist based in
-                <span class="highlight">Chicago, Illinois</span>, specializing in
-                <strong>fine-line tattoos</strong>, <strong>blackwork</strong>, and
-                <strong>custom designs</strong>. Her portfolio features original ink
-                work that blends delicate line work with bold, timeless imagery.
-                Whether you are looking for a minimalist piece or a full custom
-                sleeve, Mayra brings a meticulous, artistic touch to every tattoo.
-            </p>
-            <p style="margin-top:12px;">
-                Browse the gallery below to see recent work, then reach out via
-                <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" style="color:var(--pink-600);font-weight:600;">Instagram</a>
-                to book your session.
-            </p>
-        </section>
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">Tattoo Gallery</h2>
+      <div class="gallery-grid" id="gallery" role="list"></div>
+    </section>
+  </main>
 
-        <!-- GALLERY -->
-        <section aria-labelledby="gallery-heading">
-            <h2 id="gallery-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">Tattoo Gallery</h2>
-            <div class="gallery-grid" id="gallery" role="list">
-                <!-- Images injected by JavaScript -->
-            </div>
-        </section>
-    </main>
+  <div class="location-badge" aria-hidden="true">📍 Based in Chicago</div>
 
-    <!-- ===== LOCATION BADGE ===== -->
-    <div class="location-badge" aria-hidden="true">📍 Based in Chicago</div>
+  <footer>
+    <p>
+      &copy; 2026 <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer">Mayra Terrazas</a>
+      &nbsp;·&nbsp; Chicago, IL
+      &nbsp;·&nbsp; <a href="mailto:mayra@example.com">Contact</a>
+    </p>
+  </footer>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <p>
-            &copy; 2026 <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer">Mayra Terrazas</a>
-            &nbsp;·&nbsp; Chicago, IL
-            &nbsp;·&nbsp; <a href="mailto:mayra@example.com">Contact</a>
-        </p>
-    </footer>
-
-    <!-- ===== LIGHTBOX ===== -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tattoo image lightbox">
-        <div class="lightbox-inner">
-            <button class="navbtn prev" id="prev" aria-label="Previous image">⟨</button>
-            <img id="full" alt="" />
-            <button class="navbtn next" id="next" aria-label="Next image">⟩</button>
-            <div class="lb-controls">
-                <button class="iconbtn" id="close" aria-label="Close lightbox">✕</button>
-            </div>
-        </div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tattoo image lightbox">
+    <div class="lightbox-inner">
+      <button class="navbtn prev" id="prev" aria-label="Previous image">⟨</button>
+      <img id="full" alt="" />
+      <button class="navbtn next" id="next" aria-label="Next image">⟩</button>
+      <div class="lb-controls">
+        <button class="iconbtn" id="close" aria-label="Close lightbox">✕</button>
+      </div>
     </div>
+  </div>
 
-    <!-- ===== SCRIPT ===== -->
-    <script>
-        (function() {
-            'use strict';
+  <!-- ============================================================== -->
+  <!--  SCRIPT – strictly relies on Jekyll-injected AUTO_SOURCES      -->
+  <!-- ============================================================== -->
+  <script>
+    (function() {
+      'use strict';
 
-            // -------------------------------------------------------------
-            // 1. IMAGE SOURCES
-            //    If you use Jekyll, the `AUTO_SOURCES` array is populated
-            //    via Liquid. For static fallback, edit `fallbackList` below.
-            // -------------------------------------------------------------
-            var fallbackList = [
-                // Example: 'images/flower-tattoo.jpg',
-                // 'images/geometric-sleeve.jpg',
-                // 'images/minimalist-wrist.jpg'
-            ];
+      // Get the list injected by Jekyll (Liquid block at the bottom)
+      var sources = (window.AUTO_SOURCES && window.AUTO_SOURCES.length) ?
+        window.AUTO_SOURCES :
+        []; // Intentionally empty fallback – we want Jekyll to do the work.
 
-            var sources = (window.AUTO_SOURCES && window.AUTO_SOURCES.length) ?
-                window.AUTO_SOURCES :
-                fallbackList;
+      // If no images were injected, show a helpful message in the gallery.
+      if (!sources.length) {
+        var gallery = document.getElementById('gallery');
+        var msg = document.createElement('div');
+        msg.style.cssText = 'grid-column:1/-1; text-align:center; padding:60px 20px; background:rgba(255,255,255,0.3); border-radius:16px; color:#1f2937;';
+        msg.innerHTML = `
+          <p style="font-size:1.2rem; font-weight:600; margin-bottom:8px;">📁 No images found</p>
+          <p style="font-size:0.95rem;">Please run <strong>jekyll serve</strong> or <strong>jekyll build</strong> to scan your <code>/images/</code> folder.<br>
+          (The page must be processed by Jekyll to auto‑load the gallery.)</p>
+        `;
+        gallery.appendChild(msg);
+        console.warn('Jekyll AUTO_SOURCES is empty. Make sure you run Jekyll and have images in the /images/ folder.');
+        return; // Stop here – no images to process.
+      }
 
-            // If still empty, show a placeholder message.
-            if (!sources.length) {
-                sources = ['data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"%3E%3Crect width="400" height="500" fill="%23fce7f3"/%3E%3Ctext x="50%25" y="50%25" font-family="Inter,sans-serif" font-size="20" fill="%23999999" text-anchor="middle" dy=".3em"%3EAdd images to /images/%3C/text%3E%3C/svg%3E'];
-                console.warn('No images found. Add image paths to sources or fallbackList.');
-            }
+      var imageList = sources.map(function(p) { return p.split('/').pop() || 'Tattoo image'; });
+      var gallery = document.getElementById('gallery');
 
-            var imageList = sources.map(function(p) {
-                return p.split('/').pop() || 'Tattoo image';
-            });
+      // Build thumbnails
+      sources.forEach(function(src, idx) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = imageList[idx] || 'Tattoo artwork by Mayra Terrazas';
+        img.className = 'thumb';
+        img.loading = 'lazy';
+        img.setAttribute('role', 'listitem');
+        img.addEventListener('click', function() { openLightbox(idx); });
+        img.addEventListener('keydown', function(e) { if (e.key === 'Enter') openLightbox(idx); });
+        img.setAttribute('tabindex', '0');
+        gallery.appendChild(img);
+      });
 
-            var gallery = document.getElementById('gallery');
+      // Lightbox logic
+      var lightbox = document.getElementById('lightbox');
+      var full = document.getElementById('full');
+      var closeBtn = document.getElementById('close');
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+      var currentIndex = 0;
 
-            // -------------------------------------------------------------
-            // 2. BUILD THUMBNAILS
-            // -------------------------------------------------------------
-            sources.forEach(function(src, idx) {
-                var img = document.createElement('img');
-                img.src = src;
-                img.alt = imageList[idx] || 'Tattoo artwork by Mayra Terrazas';
-                img.className = 'thumb';
-                img.loading = 'lazy';
-                img.setAttribute('role', 'listitem');
-                img.addEventListener('click', function() {
-                    openLightbox(idx);
-                });
-                img.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter') openLightbox(idx);
-                });
-                img.setAttribute('tabindex', '0');
-                gallery.appendChild(img);
-            });
+      function openLightbox(i) {
+        currentIndex = i;
+        full.src = sources[currentIndex];
+        full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
 
-            // -------------------------------------------------------------
-            // 3. LIGHTBOX LOGIC
-            // -------------------------------------------------------------
-            var lightbox = document.getElementById('lightbox');
-            var full = document.getElementById('full');
-            var closeBtn = document.getElementById('close');
-            var prevBtn = document.getElementById('prev');
-            var nextBtn = document.getElementById('next');
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
 
-            var currentIndex = 0;
+      function showNext() {
+        currentIndex = (currentIndex + 1) % sources.length;
+        full.src = sources[currentIndex];
+        full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
+      }
 
-            function openLightbox(i) {
-                currentIndex = i;
-                full.src = sources[currentIndex];
-                full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
-                lightbox.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                // focus the close button for accessibility
-                closeBtn.focus();
-            }
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + sources.length) % sources.length;
+        full.src = sources[currentIndex];
+        full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
+      }
 
-            function closeLightbox() {
-                lightbox.classList.remove('open');
-                document.body.style.overflow = '';
-            }
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+      lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
 
-            function showNext() {
-                currentIndex = (currentIndex + 1) % sources.length;
-                full.src = sources[currentIndex];
-                full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
-            }
+      window.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
 
-            function showPrev() {
-                currentIndex = (currentIndex - 1 + sources.length) % sources.length;
-                full.src = sources[currentIndex];
-                full.alt = imageList[currentIndex] || 'Tattoo artwork by Mayra Terrazas';
-            }
+      // Trap focus inside lightbox
+      lightbox.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+          var focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          var first = focusable[0];
+          var last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    })();
+  </script>
 
-            // Event listeners
-            closeBtn.addEventListener('click', closeLightbox);
-            nextBtn.addEventListener('click', showNext);
-            prevBtn.addEventListener('click', showPrev);
-
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) closeLightbox();
-            });
-
-            // Keyboard
-            window.addEventListener('keydown', function(e) {
-                if (!lightbox.classList.contains('open')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') showNext();
-                if (e.key === 'ArrowLeft') showPrev();
-            });
-
-            // Trap focus inside lightbox (basic)
-            lightbox.addEventListener('keydown', function(e) {
-                if (e.key === 'Tab') {
-                    var focusable = lightbox.querySelectorAll(
-                        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-                    );
-                    var first = focusable[0];
-                    var last = focusable[focusable.length - 1];
-                    if (e.shiftKey && document.activeElement === first) {
-                        e.preventDefault();
-                        last.focus();
-                    } else if (!e.shiftKey && document.activeElement === last) {
-                        e.preventDefault();
-                        first.focus();
-                    }
-                }
-            });
-
-            // Expose for debugging
-            window.__lightbox = {
-                open: openLightbox,
-                close: closeLightbox,
-                next: showNext,
-                prev: showPrev
-            };
-
-        })();
-    </script>
-
-    <!--
-    ============================================================
-    JEKYLL LIQUID — INJECT IMAGE SOURCES
-    This block populates window.AUTO_SOURCES so the script
-    above can load images automatically from the /images/ folder.
-    ============================================================
-    -->
-    {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
-    <script>
-        window.AUTO_SOURCES = [
-            {% for f in imgs %}
-            "{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-        ];
-    </script>
-
+  <!-- ============================================================== -->
+  <!--  JEKYLL LIQUID – injects image paths from /images/ folder      -->
+  <!--  This ONLY runs when Jekyll builds the site.                  -->
+  <!-- ============================================================== -->
+  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/images/'" %}
+  <script>
+    window.AUTO_SOURCES = [
+      {% for f in imgs %}
+      "{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    ];
+  </script>
 </body>
 </html>
