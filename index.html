@@ -29,7 +29,7 @@
       min-height:100%;
     }
 
-    header {
+       header {
       position:sticky; top:0; z-index:40;
       backdrop-filter:saturate(140%) blur(8px);
       background:var(--pink-400);
@@ -38,7 +38,35 @@
       color:var(--periwinkle);
       padding:24px 20px;
       min-height:80px;
-      display:flex; align-items:center; justify-content:center;
+      display:flex; 
+      flex-direction: column;   /* 👈 NEW: stacks title and hint vertically */
+      align-items:center; 
+      justify-content:center;
+    }
+
+    h1 { margin:0; letter-spacing:.2px; font-size:clamp(1.25rem,2.6vw,2rem) }
+    h1 strong { color:var(--periwinkle) }
+
+    /*  NEW STYLES (paste these right after h1 strong) */
+    .header-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .header-link:hover {
+      transform: scale(1.02);
+    }
+    .header-link:hover h1 strong {
+      color: #fff;
+    }
+    .social-hint {
+      margin: 4px 0 0 0;
+      font-size: 0.75rem;
+      font-weight: 300;
+      opacity: 0.8;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     h1 { margin:0; letter-spacing:.2px; font-size:clamp(1.25rem,2.6vw,2rem) }
@@ -94,8 +122,11 @@
 </head>
 <body>
   <header>
+  <a href="https://www.instagram.com/maii.0h.maii/" target="_blank" rel="noopener noreferrer" class="header-link">
     <h1>✨ <strong>Mayra Terrazas’</strong> Tattoo Portfolio ✨</h1>
-  </header>
+  </a>
+  <p class="social-hint">👇 Click name for social</p>
+</header>
 
   <main id="gallery"></main>
 
